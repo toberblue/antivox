@@ -18,7 +18,7 @@
         <div class="max-w-4xl mx-auto px-4 py-6">
             <div class="flex items-center justify-between">
                 <a href="{{ route('blog.index') }}" class="text-2xl font-bold text-gray-900">
-                    Peter Matthews
+                    antivox
                 </a>
             </div>
             
@@ -44,7 +44,7 @@
     <footer class="bg-white border-t mt-12">
         <div class="max-w-4xl mx-auto px-4 py-6">
             <p class="text-center text-gray-600 text-sm">
-                © {{ date('Y') }} Peter Matthews
+                © {{ date('Y') }} antivox
             </p>
         </div>
     </footer>

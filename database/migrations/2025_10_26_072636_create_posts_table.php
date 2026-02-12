@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('sub_heading')->nullable();
             $table->text('content');
-            $table->string('author')->default('Peter Matthews');
+            $table->string('author')->default('antivox');
             $table->string('featured_image')->nullable();
             $table->foreignId('category_id')->nullable()->constrained()->onDelete('set null');
             $table->timestamp('published_at')->nullable();
