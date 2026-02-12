@@ -138,7 +138,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="text-white border-t" style="background-color: #002147;">
+    <footer class="text-white border-t" style="background-color: #000000;">
         <div class="max-w-4xl mx-auto px-4 py-6">
             <p class="text-center text-gray-300 text-sm">
                 © {{ date('Y') }} antivox
