@@ -35,6 +35,12 @@
             object-fit: cover;
             border: 3px solid #002147;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
