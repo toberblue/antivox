@@ -4,7 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $title ?? 'Henley Blog' }} - Peter Matthews</title>
+    <title>{{ $title ?? 'antivox' }}</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>[x-cloak] { display: none !important; }</style>
 </head>
@@ -16,9 +20,6 @@
                 <a href="{{ route('blog.index') }}" class="text-2xl font-bold text-gray-900">
                     Peter Matthews
                 </a>
-                <p class="text-gray-600 text-sm hidden md:block">
-                    Writer, musician, coder, want to be boatbuilder.
-                </p>
             </div>
             
             <!-- Search -->
