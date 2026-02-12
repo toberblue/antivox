@@ -62,7 +62,7 @@
                     type="text" 
                     name="author" 
                     id="author" 
-                    value="{{ old('author', 'Peter Matthews') }}"
+                    value="{{ old('author', 'antivox') }}"
                     class="w-full border border-gray-300 rounded px-3 py-2 focus:ring-primary-500 focus:border-primary-500"
                     required
                 >
