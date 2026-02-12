@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Peter Matthews - Writer, musician, coder, want to be boat builder</title>
+    <title>antivox</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         [x-cloak] { display: none !important; }
@@ -39,41 +39,15 @@
     </style>
 </head>
 <body class="bg-gray-50 antialiased">
-    <!-- Banner with Ken Burns effect -->
-    <div class="banner-container bg-gray-900" style="border-bottom: 3px solid #002147;">
-        <img 
-            src="/storage/henley.png" 
-            alt="Henley Banner"
-        >
-    </div>
 
     <!-- Articles Section -->
     <section id="articles" class="bg-white">
         <div class="max-w-4xl mx-auto px-4 py-6">
             <!-- Header -->
             <div class="flex items-center gap-6 mb-4">
-                @php
-                    $heroImages = [
-                        '1.png',
-                        '167PET~1.png',
-                        '20020123ax.png',
-                        'DSCF1123.png',
-                        'IMG_0002.png',
-                        'IMG_1749.png',
-                        'IMG_3135.png',
-                        'P1000066.png',
-                        'P1000991.png',
-                        'Screenshot 2025-10-27 at 11.40.37 AM.png',
-                        'pm.png'
-                    ];
-                    $randomHero = $heroImages[array_rand($heroImages)];
-                @endphp
-                <img src="/storage/hero/{{ $randomHero }}" alt="Hero" class="hero-circle">
+                <img src="/storage/hero/yy.png" alt="Hero" class="hero-circle">
                 <div class="flex-1">
-                    <h1 class="text-2xl md:text-3xl font-bold text-gray-700">Peter Matthews</h1>
-                    <p class="text-base text-gray-600">
-                        Writer, musician, coder, want to be boat builder
-                    </p>
+                    <h1 class="text-2xl md:text-3xl font-bold text-gray-700">antivox</h1>
                 </div>
             </div>
 
@@ -161,7 +135,7 @@
     <footer class="text-white border-t" style="background-color: #002147;">
         <div class="max-w-4xl mx-auto px-4 py-6">
             <p class="text-center text-gray-300 text-sm">
-                © {{ date('Y') }} Peter Matthews
+                © {{ date('Y') }} antivox
             </p>
         </div>
     </footer>
