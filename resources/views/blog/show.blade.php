@@ -95,7 +95,21 @@
             </div>
         </div>
     @endif
+
+    <!-- Comments -->
+    <div class="border-t pt-6 mt-8">
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">Comments</h3>
+        <div id="fastcomments-widget"></div>
+    </div>
 </article>
+
+<!-- FastComments -->
+<script async src="https://cdn.fastcomments.com/js/embed-v2-async.min.js"></script>
+<script>
+window.fcConfigs = [{
+    "tenantId": "4M8bb2NBsIZ"
+}];
+</script>
 
 @if(request('highlight'))
 <script>
