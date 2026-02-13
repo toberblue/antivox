@@ -107,7 +107,7 @@
 <script async src="https://cdn.fastcomments.com/js/embed-v2-async.min.js"></script>
 <script>
 window.fcConfigs = [{
-    "tenantId": "4M8bb2NBsIZ"
+    "tenantId": "5mmKaJKOl1t"
 }];
 </script>
 
