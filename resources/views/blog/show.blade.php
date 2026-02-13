@@ -107,7 +107,8 @@
 <script async src="https://cdn.fastcomments.com/js/embed-v2-async.min.js"></script>
 <script>
 window.fcConfigs = [{
-    "tenantId": "5mmKaJKOl1t"
+    "tenantId": "5mmKaJKOl1t",
+    "requireEmailForAnonymousComments": false
 }];
 </script>
 
