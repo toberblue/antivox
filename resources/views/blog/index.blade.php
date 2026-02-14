@@ -29,13 +29,21 @@
         }
         
         .hero-circle {
-            width: 160px;
-            height: 160px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #002147;
+            border: 2px solid #002147;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             animation: rotate 30s linear infinite;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-circle {
+                width: 160px;
+                height: 160px;
+                border: 3px solid #002147;
+            }
         }
         
         @keyframes rotate {
