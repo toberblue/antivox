@@ -89,17 +89,28 @@ class AdminController extends Controller
             'published_at' => 'required|date',
             'category_id' => 'nullable|exists:categories,id',
             'tags' => 'nullable|array',
-            'tags.*' => 'exists:tags,id'
+            'tags.*' => 'exists:tags,id',
+            'featured_image' => 'nullable|image|max:2048'
         ]);
 
-        $post->update([
+        $updateData = [
             'title' => $validated['title'],
             'sub_heading' => $validated['sub_heading'],
             'content' => $validated['content'],
             'author' => $validated['author'],
             'published_at' => $validated['published_at'],
             'category_id' => $validated['category_id'],
-        ]);
+        ];
+
+        // Handle featured image upload
+        if ($request->hasFile('featured_image')) {
+            $file = $request->file('featured_image');
+            $originalName = $file->getClientOriginalName();
+            $file->storeAs('blog_images', $originalName, 'public');
+            $updateData['featured_image'] = '/storage/blog_images/' . $originalName;
+        }
+
+        $post->update($updateData);
 
         if (isset($validated['tags'])) {
             $post->tags()->sync($validated['tags']);
