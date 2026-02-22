@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    article a {
+        color: #0066cc;
+        text-decoration: underline;
+    }
+    article a:hover {
+        color: #0052a3;
+    }
+</style>
 <div>
     <div class="mb-8">
         <a href="{{ route('blog.index') }}" class="text-primary-600 hover:text-primary-700 mb-4 inline-block">

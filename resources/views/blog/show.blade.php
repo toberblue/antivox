@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    article a {
+        color: #0066cc;
+        text-decoration: underline;
+    }
+    article a:hover {
+        color: #0052a3;
+    }
+</style>
 <article>
     <!-- Header -->
     <div class="mb-8">
@@ -67,7 +76,7 @@
         @endif
 
         @if($post->sub_heading)
-            <p class="text-xl text-gray-700 mb-4 font-medium">{{ $post->sub_heading }}</p>
+            <p class="text-xl text-gray-700 mb-4 font-medium">{!! markdown($post->sub_heading) !!}</p>
         @endif
         
         @php
@@ -79,7 +88,7 @@
             }
         @endphp
         
-        {!! $content !!}
+        {!! markdown($content) !!}
     </div>
 
     <!-- Tags -->

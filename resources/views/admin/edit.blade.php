@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ route('admin.update', $post) }}" class="bg-white rounded-lg shadow p-6">
+    <form id="edit-post-form" method="POST" action="{{ route('admin.update', $post) }}" class="bg-white rounded-lg shadow p-6">
         @csrf
         @method('PUT')
 
@@ -310,8 +310,13 @@
     }
     
     // Sync editor content to hidden textarea on form submit
-    document.querySelector('form').onsubmit = function() {
-        document.querySelector('#content').value = quill.root.innerHTML;
-    };
+    document.querySelector('#edit-post-form').addEventListener('submit', function(e) {
+        var html = quill.root.innerHTML;
+        // Clean up Quill's empty paragraphs
+        html = html.replace(/<p><br><\/p>/g, '');
+        document.querySelector('#content').value = html;
+        // Allow form to submit
+        return true;
+    });
 </script>
 @endsection

@@ -19,14 +19,17 @@ class CategorySeeder extends Seeder
             ['name' => 'Real estate', 'order' => 3],
             ['name' => 'Limericks', 'order' => 4],
             ['name' => 'Boatbuilding', 'order' => 5],
+            ['name' => 'Thoughts', 'order' => 6],
         ];
 
         foreach ($categories as $category) {
-            Category::create([
-                'name' => $category['name'],
-                'slug' => Str::slug($category['name']),
-                'order' => $category['order'],
-            ]);
+            Category::updateOrCreate(
+                ['name' => $category['name']],
+                [
+                    'slug' => Str::slug($category['name']),
+                    'order' => $category['order'],
+                ]
+            );
         }
     }
 }
