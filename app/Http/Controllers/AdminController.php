@@ -49,7 +49,8 @@ class AdminController extends Controller
         if ($request->hasFile('featured_image')) {
             $file = $request->file('featured_image');
             $originalName = $file->getClientOriginalName();
-            $file->storeAs('blog_images', $originalName, 'public');
+            // Save directly to public/storage/blog_images
+            $file->move(public_path('storage/blog_images'), $originalName);
             $imagePath = '/storage/blog_images/' . $originalName;
         }
 
@@ -106,7 +107,8 @@ class AdminController extends Controller
         if ($request->hasFile('featured_image')) {
             $file = $request->file('featured_image');
             $originalName = $file->getClientOriginalName();
-            $file->storeAs('blog_images', $originalName, 'public');
+            // Save directly to public/storage/blog_images
+            $file->move(public_path('storage/blog_images'), $originalName);
             $updateData['featured_image'] = '/storage/blog_images/' . $originalName;
         }
 

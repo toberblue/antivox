@@ -98,7 +98,7 @@
             <div class="flex flex-wrap gap-2">
                 @foreach($post->tags as $tag)
                     <a href="{{ route('blog.tag', $tag->slug) }}" class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200">
-                        {{ $tag->name }}
+                        {{ ucfirst($tag->name) }}
                     </a>
                 @endforeach
             </div>

@@ -15,7 +15,7 @@
         <a href="{{ route('blog.index') }}" class="text-primary-600 hover:text-primary-700 mb-4 inline-block">
             ← Back to all posts
         </a>
-        <h1 class="text-3xl font-bold text-gray-900 mb-2">Tag: {{ $tag->name }}</h1>
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">Tag: {{ ucfirst($tag->name) }}</h1>
         <p class="text-gray-600">{{ $posts->total() }} {{ Str::plural('post', $posts->total()) }}</p>
     </div>
 
