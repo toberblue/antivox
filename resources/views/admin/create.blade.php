@@ -197,13 +197,118 @@
             </div>
 
             <!-- Content -->
-            <div>
-                <label for="content" class="block text-sm font-medium text-gray-700 mb-1">Content</label>
+            <div x-data="{ showMarkdownHelp: false }">
+                <div class="flex justify-between items-center mb-1">
+                    <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
+                    <button type="button" @click="showMarkdownHelp = true" class="text-xs text-primary-600 hover:text-primary-700">
+                        Markdown Help
+                    </button>
+                </div>
+                <p class="text-xs text-gray-500 mb-2">You can use Markdown formatting or the rich text editor</p>
                 <div id="editor" style="height: 400px;"></div>
                 <textarea name="content" id="content" style="display:none;">{{ old('content') }}</textarea>
                 @error('content')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                 @enderror
+
+                <!-- Markdown Help Modal -->
+                <div x-show="showMarkdownHelp" 
+                     @click="showMarkdownHelp = false"
+                     class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
+                     x-transition:enter="transition ease-out duration-200"
+                     x-transition:enter-start="opacity-0"
+                     x-transition:enter-end="opacity-100"
+                     x-transition:leave="transition ease-in duration-150"
+                     x-transition:leave-start="opacity-100"
+                     x-transition:leave-end="opacity-0"
+                     style="display: none;"
+                >
+                    <div @click.stop class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] flex flex-col">
+                        <div class="overflow-y-auto p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h2 class="text-2xl font-bold text-gray-900">Markdown Cheatsheet</h2>
+                                <button @click="showMarkdownHelp = false" class="text-gray-400 hover:text-gray-600">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">Links</h3>
+                                    <code class="block bg-gray-100 p-2 rounded text-sm">[Link text](https://example.com)</code>
+                                    <p class="text-sm text-gray-600 mt-1">Creates: <a href="#" class="text-blue-600 underline">Link text</a></p>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">Images</h3>
+                                    <code class="block bg-gray-100 p-2 rounded text-sm">![Alt text](https://example.com/image.jpg)</code>
+                                    <p class="text-sm text-gray-600 mt-1">Embeds an image</p>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">Text Formatting</h3>
+                                    <code class="block bg-gray-100 p-2 rounded text-sm mb-1">**bold text**</code>
+                                    <code class="block bg-gray-100 p-2 rounded text-sm mb-1">*italic text*</code>
+                                    <code class="block bg-gray-100 p-2 rounded text-sm">***bold and italic***</code>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">Headings</h3>
+                                    <code class="block bg-gray-100 p-2 rounded text-sm mb-1"># Heading 1</code>
+                                    <code class="block bg-gray-100 p-2 rounded text-sm mb-1">## Heading 2</code>
+                                    <code class="block bg-gray-100 p-2 rounded text-sm">### Heading 3</code>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">Lists</h3>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <p class="text-sm font-medium mb-1">Unordered:</p>
+                                            <code class="block bg-gray-100 p-2 rounded text-sm whitespace-pre">- Item 1
+- Item 2
+- Item 3</code>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-medium mb-1">Ordered:</p>
+                                            <code class="block bg-gray-100 p-2 rounded text-sm whitespace-pre">1. First
+2. Second
+3. Third</code>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">Blockquotes</h3>
+                                    <code class="block bg-gray-100 p-2 rounded text-sm">&gt; This is a quote</code>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">Code</h3>
+                                    <code class="block bg-gray-100 p-2 rounded text-sm mb-1">`inline code`</code>
+                                    <code class="block bg-gray-100 p-2 rounded text-sm whitespace-pre">```
+code block
+multiple lines
+```</code>
+                                </div>
+
+                                <div class="bg-blue-50 border border-blue-200 rounded p-3">
+                                    <p class="text-sm text-blue-800">
+                                        <strong>Note:</strong> The rich text editor (Quill) will convert your formatting to HTML automatically. 
+                                        For new posts, you can use Markdown syntax directly in the content field if you prefer.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 flex justify-end">
+                                <button @click="showMarkdownHelp = false" class="bg-primary-600 text-white px-4 py-2 rounded hover:bg-primary-700">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Buttons -->
